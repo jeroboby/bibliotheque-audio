@@ -17,3 +17,4 @@ create table `chansons` (
 	PRIMARY KEY(`id`),
 	FOREIGN KEY (`disque_id`) REFERENCES `disques` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
