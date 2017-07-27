@@ -5,18 +5,24 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import fr.lteconsulting.dao.DisqueDAO;
+
 public class Bibliotheque
 {
 	private Map<String, Disque> disques = new HashMap<>();
+	 DisqueDAO disqueDAO = new DisqueDAO();
 
 	public void ajouterDisque( Disque disque )
 	{
-		disques.put( disque.getCodeBarre(), disque );
+		//disques.put( disque.getCodeBarre(), disque );
+		
+		disqueDAO.addDisque(disque);
 	}
 
 	public List<Disque> getDisques()
 	{
 		return new ArrayList<>( disques.values() );
+		
 	}
 
 	public Disque rechercherDisqueParCodeBarre( String codeBarre )
@@ -67,5 +73,8 @@ public class Bibliotheque
 		System.out.println( "BIBLIOTHEQUE avec " + disques.size() + " disques" );
 		for( Disque disque : disques.values() )
 			disque.afficher();
+	}
+	public void delete(String id){
+		
 	}
 }

@@ -1,5 +1,8 @@
 package fr.lteconsulting.modele;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -10,13 +13,14 @@ public class Disque
 	private String nom;
 	private List<Chanson> chansons = new ArrayList<>();
 
-	public Disque( String nom )
+	public Disque()
 	{
-		this( UUID.randomUUID().toString(), nom );
+	}
+	public Disque(String nom) {
+		this(UUID.randomUUID().toString(), nom);
 	}
 
-	public Disque( String codeBarre, String nom )
-	{
+	public Disque(String codeBarre, String nom) {
 		this.codeBarre = codeBarre;
 		this.nom = nom;
 	}
@@ -44,6 +48,12 @@ public class Disque
 	public void addChanson( Chanson chanson )
 	{
 		chansons.add( chanson );
+		chanson.setDisqueId( codeBarre );
+	}
+
+	public List<Chanson> getChansons()
+	{
+		return chansons;
 	}
 
 	public int getDuree()
@@ -70,4 +80,5 @@ public class Disque
 				chanson.afficher();
 		}
 	}
+	
 }

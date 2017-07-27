@@ -2,6 +2,7 @@ package fr.lteconsulting.commandes;
 
 import fr.lteconsulting.Commande;
 import fr.lteconsulting.GenerateurDisque;
+import fr.lteconsulting.dao.DisqueDAO;
 import fr.lteconsulting.modele.Bibliotheque;
 import fr.lteconsulting.modele.Disque;
 import fr.lteconsulting.outils.Saisie;
@@ -9,6 +10,7 @@ import fr.lteconsulting.outils.Saisie;
 public class GenerationDisques implements Commande
 {
 	private Bibliotheque bibliotheque;
+	private DisqueDAO disqueDAO;
 
 	public GenerationDisques( Bibliotheque bibliotheque )
 	{
@@ -38,6 +40,7 @@ public class GenerationDisques implements Commande
 			disque.afficher( false );
 
 			bibliotheque.ajouterDisque( disque );
+		
 		}
 	}
 }
